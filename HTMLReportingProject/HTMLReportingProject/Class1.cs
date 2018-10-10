@@ -121,5 +121,75 @@ namespace HTMLReportingProject
                 throw ex;
             }
         }
+
+        public void HyperLink(string link, string desc)
+        {
+            try{_Body.Enqueue("<a href='" + link + "'>" + desc + "</a>");}
+            catch (Exception ex)
+            {throw ex;}
+        }
+
+        public void FigCaption(string description)
+        {
+            try { _Body.Enqueue("<figcaption>" + description + "</figcaption>"); }
+            catch (Exception ex) { throw ex; }
+        }
+
+        public void FigureOpen()
+        {
+            try { _Body.Enqueue("<figure>"); } catch (Exception ex) { throw ex; }
+        }
+
+        public void FigureClose()
+        {
+            try { _Body.Enqueue("</figure>"); } catch (Exception ex) { throw ex; }
+        }
+
+        public void InputTextBox()
+        {
+            try{_Body.Enqueue("<input type='text'>");} catch (Exception ex){ throw ex; }
+        }
+
+        public void DivOpen()
+        {
+            try{ _Body.Enqueue("<div>"); } catch (Exception ex){throw ex;}
+        }
+
+        public void DivClose()
+        {
+            try{_Body.Enqueue("</div>");} catch (Exception ex){throw ex;}
+        }
+
+        public void AddBreak()
+        {
+            try{_Body.Enqueue("</br>");} catch (Exception ex){throw ex;}
+        }
+
+        public void AddParagraph (string text)
+        {
+            try{ _Body.Enqueue("<p>" + text + "</p>");} catch (Exception ex){throw ex;}
+        }
+
+        public void AddHeader (string text, int index)
+        {
+            try
+            {
+                switch (index)
+                {
+                    case 1: { _Body.Enqueue("<h1>" + text + "</h1>"); break; }
+                    case 2: { _Body.Enqueue("<h2>" + text + "</h2>"); break; }
+                    case 3: { _Body.Enqueue("<h3>" + text + "</h3>"); break; }
+                    case 4: { _Body.Enqueue("<h4>" + text + "</h4>"); break; }
+                    case 5: { _Body.Enqueue("<h5>" + text + "</h5>"); break; }
+                    case 6: { _Body.Enqueue("<h6>" + text + "</h6>"); break; }
+                    default: { _Body.Enqueue("<h2>" + text + "</h2>"); break; }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            
+        }
     }
 }
