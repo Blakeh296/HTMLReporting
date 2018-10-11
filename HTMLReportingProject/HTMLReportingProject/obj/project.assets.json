@@ -182,9 +182,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\C#\\HTMLReporting\\HTMLReportingProject\\HTMLReportingProject\\HTMLReportingProject.csproj",
-      "projectName": "HTMLReportingProject",
-      "projectPath": "G:\\C#\\HTMLReporting\\HTMLReportingProject\\HTMLReportingProject\\HTMLReportingProject.csproj",
+      "projectUniqueName": "G:\\C#\\HTMLReporting\\HTMLReportingProject\\HTMLReportingProject\\HTMLReportingDLL.csproj",
+      "projectName": "HTMLReportingDLL",
+      "projectPath": "G:\\C#\\HTMLReporting\\HTMLReportingProject\\HTMLReportingProject\\HTMLReportingDLL.csproj",
       "packagesPath": "C:\\Users\\Cyberadmin\\.nuget\\packages\\",
       "outputPath": "G:\\C#\\HTMLReporting\\HTMLReportingProject\\HTMLReportingProject\\obj\\",
       "projectStyle": "PackageReference",

@@ -1,0 +1,9 @@
+G:\C#\HTMLReporting\HTMLReportingProject\HTMLReportingProject\bin\Debug\netstandard2.0\HTMLReportingProject.deps.json
+G:\C#\HTMLReporting\HTMLReportingProject\HTMLReportingProject\bin\Debug\netstandard2.0\HTMLReportingProject.dll
+G:\C#\HTMLReporting\HTMLReportingProject\HTMLReportingProject\bin\Debug\netstandard2.0\HTMLReportingProject.pdb
+G:\C#\HTMLReporting\HTMLReportingProject\HTMLReportingProject\obj\Debug\netstandard2.0\HTMLReportingProject.csprojAssemblyReference.cache
+G:\C#\HTMLReporting\HTMLReportingProject\HTMLReportingProject\obj\Debug\netstandard2.0\HTMLReportingProject.csproj.CoreCompileInputs.cache
+G:\C#\HTMLReporting\HTMLReportingProject\HTMLReportingProject\obj\Debug\netstandard2.0\HTMLReportingProject.AssemblyInfoInputs.cache
+G:\C#\HTMLReporting\HTMLReportingProject\HTMLReportingProject\obj\Debug\netstandard2.0\HTMLReportingProject.AssemblyInfo.cs
+G:\C#\HTMLReporting\HTMLReportingProject\HTMLReportingProject\obj\Debug\netstandard2.0\HTMLReportingProject.dll
+G:\C#\HTMLReporting\HTMLReportingProject\HTMLReportingProject\obj\Debug\netstandard2.0\HTMLReportingProject.pdb

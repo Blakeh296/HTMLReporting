@@ -13,10 +13,10 @@ namespace HTMLReportingProject
         private Queue<string> _Body = new Queue<string>();
 
         public string ProjectName
-        {
-            get { return _Name; }
-            set { _Name = value; }
-        }
+        { get { return _Name; } set { _Name = value; } }
+
+        public string FolderName
+        { get { return _folder; } set { _folder = value; } }
 
         public HTMLReportor() //For when report had no name
         {
