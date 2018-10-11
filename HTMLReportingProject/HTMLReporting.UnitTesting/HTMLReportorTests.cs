@@ -8,19 +8,76 @@ namespace HTMLReporting.UnitTesting
     [TestClass]
     public class HTMLReportorTests
     {
+        DecimalConvert convert = new DecimalConvert();
+
         [TestMethod]
-        public void DecimalConvertorDLL_BinaryCalculator()
+        public void DecimalConvertDLL_Bin()
         {
             //Arrange
-            long expected = 1111101000;
-            long testVal = 1000;
-            DecimalConvert convert = new DecimalConvert();
+            long[] expectedVal = new long[] { 1010, 1100100, 1111101000, 10011100010000, 11000011010100000 };
+            long testVal = 10;
+            int count = 0;
 
             //Act
-            long actual = convert.BinaryCalculator(testVal);
+            while (testVal < 100000)
+            {
+                long returnVal = convert.BinaryCalculator(testVal);
+                long actualVal = expectedVal[count];
 
-            //Assert
-            Assert.AreEqual(expected, actual);
+                //Assert
+                Assert.AreEqual(actualVal, returnVal);
+
+                //Loop
+                testVal = (testVal * 10);
+                count++;
+            }
+        }
+
+        [TestMethod]
+        public void DecimalConvertDLL_Oct()
+        {
+
+            //Arrange
+            long[] expectedVal = new long[] { 12, 144, 1750, 23420};
+            long testVal = 10;
+            int count = 0;
+
+            //Act
+            while (testVal < 100000)
+            {
+                long returnVal = long.Parse(convert.OctalCalculator(testVal));
+                long actualVal = expectedVal[count];
+
+                //Assert
+                Assert.AreEqual(actualVal, returnVal);
+
+                //Loop
+                testVal = (testVal * 10);
+                count++;
+            }
+        }
+
+        [TestMethod]
+        public void DecimalConvertDLL_Hex()
+        {
+            //Arrange 
+            string[] expectedVal = new string[] { "A", "64", "3E8", "2710", "186A0" };
+            long testVal = 10;
+            int count = 0;
+
+            //Act
+            while (testVal < 100000)
+            {
+                string returnVal = convert.HexCalculator(testVal);
+                string actualVal = expectedVal[count];
+
+                //Assert
+                Assert.AreEqual(actualVal, returnVal);
+
+                //Loop
+                testVal = (testVal * 10);
+                count++;
+            }
         }
 
         [TestMethod]
@@ -40,10 +97,10 @@ namespace HTMLReporting.UnitTesting
         [TestMethod]
         public void HTMLReportor_Constructor_WithTitle()
         {
+            HTMLReportor reportor = new HTMLReportor("SampleData");
             //Arrange 
             string expectedName = "SampleData";
-            HTMLReportor reportor = new HTMLReportor("SampleData");
-
+            
             //Act
             string actualName = reportor.ProjectName;
 
@@ -54,11 +111,11 @@ namespace HTMLReporting.UnitTesting
         [TestMethod]
         public void HTMLReportor_Constructor_WithTitleandLocation()
         {
+            HTMLReportor reportor = new HTMLReportor("SampleData", "C:\\Data\\");
             //Arrange
             string expectedName = "SampleData";
             string expectedLocation = "C:\\Data\\";
-            HTMLReportor reportor = new HTMLReportor("SampleData", "C:\\Data\\");
-
+            
             //Act
             string actualName = reportor.ProjectName;
             string actualLocation = reportor.FolderName;

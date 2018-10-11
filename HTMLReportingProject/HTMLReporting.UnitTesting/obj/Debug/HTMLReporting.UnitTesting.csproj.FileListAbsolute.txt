@@ -108,7 +108,7 @@ G:\C#\HTMLReporting\HTMLReportingProject\HTMLReporting.UnitTesting\bin\Debug\Mic
 G:\C#\HTMLReporting\HTMLReportingProject\HTMLReporting.UnitTesting\obj\Debug\HTMLReporting.UnitTesting.csproj.CopyComplete
 G:\C#\HTMLReporting\HTMLReportingProject\HTMLReporting.UnitTesting\obj\Debug\HTMLReporting.UnitTesting.dll
 G:\C#\HTMLReporting\HTMLReportingProject\HTMLReporting.UnitTesting\obj\Debug\HTMLReporting.UnitTesting.pdb
-G:\C#\HTMLReporting\HTMLReportingProject\HTMLReporting.UnitTesting\bin\Debug\DecimalConversionsDLL.dll
 G:\C#\HTMLReporting\HTMLReportingProject\HTMLReporting.UnitTesting\bin\Debug\DecimalConversionsDLL.pdb
 G:\C#\HTMLReporting\HTMLReportingProject\HTMLReporting.UnitTesting\bin\Debug\HTMLReportingDLL.dll
 G:\C#\HTMLReporting\HTMLReportingProject\HTMLReporting.UnitTesting\bin\Debug\HTMLReportingDLL.pdb
+G:\C#\HTMLReporting\HTMLReportingProject\HTMLReporting.UnitTesting\bin\Debug\DecimalConversionsDLL.dll
