@@ -29,6 +29,7 @@ namespace HTMLReportingProject
         {
             _Name = ProjectName;
             _folder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\";
+            CreateNewProject();
         }
 
         public HTMLReportor(string ProjectName, string Folder )
@@ -55,6 +56,34 @@ namespace HTMLReportingProject
             }
 
             CreateNewProject();
+        }
+
+        public void WriteHTMLProject()
+        {
+            StreamWriter writeHTML = new StreamWriter(_folder + ProjectName + ".html");
+
+            try
+            {
+                CloseProject();
+
+                //Write header and body queues to file
+                while (_Header.Count > 0)
+                {
+                    writeHTML.WriteLine(_Header.Dequeue());
+                }
+
+                while (_Body.Count > 0)
+                {
+                    writeHTML.WriteLine(_Body.Dequeue());
+                }
+
+                writeHTML.Flush();
+                writeHTML.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         private void CreateNewProject()
@@ -94,83 +123,7 @@ namespace HTMLReportingProject
             }
         }
 
-        public void WriteHTMLProject()
-        {
-            StreamWriter writeHTML = new StreamWriter(_folder + ProjectName + ".html");
-
-            try
-            {
-                CloseProject();
-
-                //Write header and body queues to file
-                while(_Header.Count > 0)
-                {
-                    writeHTML.WriteLine(_Header.Dequeue());
-                }
-
-                while(_Body.Count > 0)
-                {
-                    writeHTML.WriteLine(_Body.Dequeue());
-                }
-
-                writeHTML.Flush();
-                writeHTML.Close();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public void HyperLink(string link, string desc)
-        {
-            try{_Body.Enqueue("<a href='" + link + "'>" + desc + "</a>");}
-            catch (Exception ex)
-            {throw ex;}
-        }
-
-        public void FigCaption(string description)
-        {
-            try { _Body.Enqueue("<figcaption>" + description + "</figcaption>"); }
-            catch (Exception ex) { throw ex; }
-        }
-
-        public void FigureOpen()
-        {
-            try { _Body.Enqueue("<figure>"); } catch (Exception ex) { throw ex; }
-        }
-
-        public void FigureClose()
-        {
-            try { _Body.Enqueue("</figure>"); } catch (Exception ex) { throw ex; }
-        }
-
-        public void InputTextBox()
-        {
-            try{_Body.Enqueue("<input type='text'>");} catch (Exception ex){ throw ex; }
-        }
-
-        public void DivOpen()
-        {
-            try{ _Body.Enqueue("<div>"); } catch (Exception ex){throw ex;}
-        }
-
-        public void DivClose()
-        {
-            try{_Body.Enqueue("</div>");} catch (Exception ex){throw ex;}
-        }
-
-        public void AddBreak()
-        {
-            try{_Body.Enqueue("</br>");} catch (Exception ex){throw ex;}
-        }
-
-        public void AddParagraph (string text)
-        {
-            try{ _Body.Enqueue("<p>" + text + "</p>");} catch (Exception ex){throw ex;}
-        }
-
-        public void AddHeader (string text, int index)
+        public void Header(string text, int index)
         {
             try
             {
@@ -189,7 +142,77 @@ namespace HTMLReportingProject
             {
                 throw ex;
             }
-            
+
+        }
+
+        public void TableOPEN()
+        { try { _Body.Enqueue("<table>"); } catch (Exception ex) { throw ex; } }
+
+        public void TableCLOSE()
+        { try { _Body.Enqueue("</table>"); } catch (Exception ex) { throw ex; } }
+
+        public void TableRowOPEN()
+        { try { _Body.Enqueue("<tr>"); } catch (Exception ex) { throw ex; } }
+
+        public void TableRowCLOSE()
+        { try { _Body.Enqueue("</tr>"); } catch (Exception ex) { throw ex; } }
+
+        public void TableHead(string text)
+        { try { _Body.Enqueue("<th>" + text + "</th>"); } catch (Exception ex) { throw ex; } }
+
+        public void TableData(string text)
+        { try { _Body.Enqueue("<td>" + text + "</td>"); } catch (Exception ex) { throw ex; } }
+
+        public void OrderedListOPEN()
+        { try { _Body.Enqueue("<ol>"); } catch (Exception ex) { throw ex; } }
+
+        public void OrderedListCLOSE()
+        { try { _Body.Enqueue("</ol>"); } catch (Exception ex) { throw ex; } }
+
+        public void UnorderedListOPEN()
+        { try { _Body.Enqueue("<ul>"); } catch (Exception ex) { throw ex; } }
+
+        public void UnorderedListCLOSE()
+        { try { _Body.Enqueue("</ul>"); } catch (Exception ex) { throw ex; } }
+
+        public void ListItem (string listItem)
+        { try { _Body.Enqueue("<li>" + listItem + "</li>"); } catch (Exception ex) { throw ex; } }
+
+        public void Paragraph(string text)
+        { try { _Body.Enqueue("<p>" + text + "</p>"); } catch (Exception ex) { throw ex; } }
+
+        // NOT USED
+        public void FigCaption(string description)
+        { try { _Body.Enqueue("<figcaption>" + description + "</figcaption>"); } catch (Exception ex) { throw ex; } }
+
+        // NOT USED
+        public void FigureOpen()
+        { try { _Body.Enqueue("<figure>"); } catch (Exception ex) { throw ex; } }
+
+        // NOT USED
+        public void FigureClose()
+        { try { _Body.Enqueue("</figure>"); } catch (Exception ex) { throw ex; } }
+
+        public void InputTextBox()
+        { try{_Body.Enqueue("<input type='text'>");} catch (Exception ex){ throw ex; } }
+
+        // NOT USED
+        public void DivOpen()
+        { try{ _Body.Enqueue("<div>"); } catch (Exception ex){throw ex;} }
+
+        // NOT USED
+        public void DivClose()
+        { try{_Body.Enqueue("</div>");} catch (Exception ex){throw ex;} }
+
+        // NOT USED
+        public void Break()
+        { try{_Body.Enqueue("</br>");} catch (Exception ex){throw ex;} }
+
+        public void HyperLink(string link, string desc)
+        {
+            try { _Body.Enqueue("<a href='" + link + "'>" + desc + "</a>"); }
+            catch (Exception ex)
+            { throw ex; }
         }
     }
 }
