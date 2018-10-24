@@ -96,6 +96,7 @@ namespace HTMLReportingProject
                 _Header.Enqueue("<!DOCTYPE html>"); 
                 _Header.Enqueue("<head>");
                 _Header.Enqueue("<title>" + ProjectName + "</title>");
+                _Header.Enqueue("<style type='text/css'>");
 
                 //Start the body
                 _Body.Clear();
@@ -112,6 +113,7 @@ namespace HTMLReportingProject
             try
             {
                 //Close out the header
+                _Header.Enqueue("</style>");
                 _Header.Enqueue("</head>");
                 //Close out the body
                 _Body.Enqueue("</body>");
@@ -123,19 +125,19 @@ namespace HTMLReportingProject
             }
         }
 
-        public void Header(string text, int index)
+        public void Header(string text, int index, string css)
         {
             try
             {
                 switch (index)
                 {
-                    case 1: { _Body.Enqueue("<h1>" + text + "</h1>"); break; }
-                    case 2: { _Body.Enqueue("<h2>" + text + "</h2>"); break; }
-                    case 3: { _Body.Enqueue("<h3>" + text + "</h3>"); break; }
-                    case 4: { _Body.Enqueue("<h4>" + text + "</h4>"); break; }
-                    case 5: { _Body.Enqueue("<h5>" + text + "</h5>"); break; }
-                    case 6: { _Body.Enqueue("<h6>" + text + "</h6>"); break; }
-                    default: { _Body.Enqueue("<h2>" + text + "</h2>"); break; }
+                    case 1: { _Body.Enqueue("<h1 "+css+">" + text + "</h1>"); break; }
+                    case 2: { _Body.Enqueue("<h2 "+css+">" + text + "</h2>"); break; }
+                    case 3: { _Body.Enqueue("<h3 "+css+">" + text + "</h3>"); break; }
+                    case 4: { _Body.Enqueue("<h4 "+css+">" + text + "</h4>"); break; }
+                    case 5: { _Body.Enqueue("<h5 "+css+">" + text + "</h5>"); break; }
+                    case 6: { _Body.Enqueue("<h6 "+css+">" + text + "</h6>"); break; }
+                    default: { _Body.Enqueue("<h2 "+css+">" + text + "</h2>"); break; }
                 }
             }
             catch (Exception ex)
@@ -145,23 +147,29 @@ namespace HTMLReportingProject
 
         }
 
-        public void TableOPEN()
-        { try { _Body.Enqueue("<table>"); } catch (Exception ex) { throw ex; } }
+        public void CSS_ID_Create(string ID_Name, string CSS_Style)
+        { try { _Header.Enqueue("#"+ID_Name+"{"+ CSS_Style + "}"); } catch (Exception ex) { throw ex; } }
+
+        public void CSS_Class_Create(string ClassName, string CSS_Style)
+        { try { _Header.Enqueue("." + ClassName + "{" + CSS_Style + "}"); } catch (Exception ex) { throw ex; } }
+
+        public void TableOPEN(string css)
+        { try { _Body.Enqueue("<table"+css+">"); } catch (Exception ex) { throw ex; } }
 
         public void TableCLOSE()
         { try { _Body.Enqueue("</table>"); } catch (Exception ex) { throw ex; } }
 
-        public void TableRowOPEN()
-        { try { _Body.Enqueue("<tr>"); } catch (Exception ex) { throw ex; } }
+        public void TableRowOPEN(string css)
+        { try { _Body.Enqueue("<tr"+css+">"); } catch (Exception ex) { throw ex; } }
 
         public void TableRowCLOSE()
         { try { _Body.Enqueue("</tr>"); } catch (Exception ex) { throw ex; } }
 
-        public void TableHead(string text)
-        { try { _Body.Enqueue("<th>" + text + "</th>"); } catch (Exception ex) { throw ex; } }
+        public void TableHead(string text, string css)
+        { try { _Body.Enqueue("<th"+css+">" + text + "</th>"); } catch (Exception ex) { throw ex; } }
 
-        public void TableData(string text)
-        { try { _Body.Enqueue("<td>" + text + "</td>"); } catch (Exception ex) { throw ex; } }
+        public void TableData(string text, string css)
+        { try { _Body.Enqueue("<td"+css+">" + text + "</td>"); } catch (Exception ex) { throw ex; } }
 
         public void OrderedListOPEN()
         { try { _Body.Enqueue("<ol>"); } catch (Exception ex) { throw ex; } }
@@ -178,8 +186,8 @@ namespace HTMLReportingProject
         public void ListItem (string listItem)
         { try { _Body.Enqueue("<li>" + listItem + "</li>"); } catch (Exception ex) { throw ex; } }
 
-        public void Paragraph(string text)
-        { try { _Body.Enqueue("<p>" + text + "</p>"); } catch (Exception ex) { throw ex; } }
+        public void Paragraph(string text, string css)
+        { try { _Body.Enqueue("<p "+css+">" + text + "</p>"); } catch (Exception ex) { throw ex; } }
 
         // NOT USED
         public void FigCaption(string description)

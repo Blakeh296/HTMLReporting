@@ -12,6 +12,8 @@ namespace HTMLReportingDEMO
 
         static void Main(string[] args)
         {
+            string nameModified = "", nameRaw = "";
+
             Console.WriteLine("Please enter a project name, then hit enter..");
 
             string projectName = Console.ReadLine(); //Get the Project Name
@@ -27,6 +29,37 @@ namespace HTMLReportingDEMO
             {
                 Console.WriteLine("Add HTML Elements to the Project searching with TAGS <>..");
                 string input = Console.ReadLine();
+                string pick = "";
+
+                if(input != "stop" && !input.Contains(@"/"))
+                {
+                    Console.WriteLine("Type 'id' or 'class' to style this element with CSS.. To skip leave blank & press enter.");
+                    pick = Console.ReadLine();
+                }
+                
+
+                if (pick == "id" || pick == "ID")
+                {
+                    Console.WriteLine("Give the new ID a name?");
+                    nameRaw = Console.ReadLine();
+                    nameModified= "id='" + nameRaw + "'";
+
+                    Console.WriteLine("Add CSS to the New ID Now:");
+                    string css = Console.ReadLine();
+                    htmlReportor.CSS_ID_Create(nameRaw, css);
+                    Console.WriteLine("ID Saved.");
+                }
+                else if (pick == "class" || pick == "Class")
+                {
+                    Console.WriteLine("Give the new Class a name?");
+                    nameRaw = Console.ReadLine();
+                    nameModified = "class='" + nameRaw + "'";
+
+                    Console.WriteLine("Add Css to the New Class Now:");
+                    string css = Console.ReadLine();
+                    htmlReportor.CSS_Class_Create(nameRaw, css);
+                    Console.WriteLine("ID Saved.");
+                }
 
                 switch (input)
                 {
@@ -36,7 +69,7 @@ namespace HTMLReportingDEMO
                             inputIndex = int.Parse(Console.ReadLine());
                             Console.WriteLine("What would you like the <H" + inputIndex + "> to say?");
                             input = Console.ReadLine();
-                            htmlReportor.Header(input, inputIndex);
+                            htmlReportor.Header(input, inputIndex, nameModified);
                             Console.WriteLine("Header Added to " + projectName);
                             break;
                         }
@@ -44,7 +77,7 @@ namespace HTMLReportingDEMO
                         {
                             Console.WriteLine("Add Paragraph: What would you like the <p> to say?");
                             input = Console.ReadLine();
-                            htmlReportor.Paragraph(input);
+                            htmlReportor.Paragraph(input, nameModified);
                             Console.WriteLine("Paragraph Added to " + projectName);
                             break;
                         }
@@ -98,7 +131,7 @@ namespace HTMLReportingDEMO
                         }
                     case "<table>":
                         {
-                            htmlReportor.TableOPEN();
+                            htmlReportor.TableOPEN(nameModified);
                             Console.WriteLine("<Table> OPENED..");
                             break;
                         }
@@ -110,7 +143,7 @@ namespace HTMLReportingDEMO
                         }
                     case "<tr>":
                         {
-                            htmlReportor.TableRowOPEN();
+                            htmlReportor.TableRowOPEN(nameModified);
                             Console.WriteLine("<tr> OPENED..");
                             break;
                         }
@@ -124,7 +157,7 @@ namespace HTMLReportingDEMO
                         {
                             Console.WriteLine("Enter data for <tr> :");
                             input = Console.ReadLine();
-                            htmlReportor.TableHead(input);
+                            htmlReportor.TableHead(input, nameModified);
                             Console.WriteLine("<th> ADDED..");
                             break;
                         }
