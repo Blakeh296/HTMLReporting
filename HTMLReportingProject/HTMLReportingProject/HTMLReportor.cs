@@ -150,7 +150,7 @@ namespace HTMLReportingProject
         public void CSS_ID_Create(string ID_Name, string CSS_Style)
         { try { _Header.Enqueue("#"+ID_Name+"{"+ CSS_Style + "}"); } catch (Exception ex) { throw ex; } }
 
-        public void CSS_Class_Create(string ClassName, string CSS_Style)
+        public void CSS_Class_CreateNEW(string ClassName, string CSS_Style)
         { try { _Header.Enqueue("." + ClassName + "{" + CSS_Style + "}"); } catch (Exception ex) { throw ex; } }
 
         public void TableOPEN(string css)
@@ -171,14 +171,14 @@ namespace HTMLReportingProject
         public void TableData(string text, string css)
         { try { _Body.Enqueue("<td"+css+">" + text + "</td>"); } catch (Exception ex) { throw ex; } }
 
-        public void OrderedListOPEN()
-        { try { _Body.Enqueue("<ol>"); } catch (Exception ex) { throw ex; } }
+        public void OrderedListOPEN(string css)
+        { try { _Body.Enqueue("<ol"+css+">"); } catch (Exception ex) { throw ex; } }
 
         public void OrderedListCLOSE()
         { try { _Body.Enqueue("</ol>"); } catch (Exception ex) { throw ex; } }
 
-        public void UnorderedListOPEN()
-        { try { _Body.Enqueue("<ul>"); } catch (Exception ex) { throw ex; } }
+        public void UnorderedListOPEN(string css)
+        { try { _Body.Enqueue("<ul"+css+">"); } catch (Exception ex) { throw ex; } }
 
         public void UnorderedListCLOSE()
         { try { _Body.Enqueue("</ul>"); } catch (Exception ex) { throw ex; } }
@@ -205,8 +205,8 @@ namespace HTMLReportingProject
         { try{_Body.Enqueue("<input type='text'>");} catch (Exception ex){ throw ex; } }
 
         // NOT USED
-        public void DivOpen()
-        { try{ _Body.Enqueue("<div>"); } catch (Exception ex){throw ex;} }
+        public void DivOpen(string css)
+        { try{ _Body.Enqueue("<div "+css+">"); } catch (Exception ex){throw ex;} }
 
         // NOT USED
         public void DivClose()
@@ -216,9 +216,9 @@ namespace HTMLReportingProject
         public void Break()
         { try{_Body.Enqueue("</br>");} catch (Exception ex){throw ex;} }
 
-        public void HyperLink(string link, string desc)
+        public void HyperLink(string link, string desc, string css)
         {
-            try { _Body.Enqueue("<a href='" + link + "'>" + desc + "</a>"); }
+            try { _Body.Enqueue("<a "+css+" href='" + link + "'>" + desc + "</a>"); }
             catch (Exception ex)
             { throw ex; }
         }

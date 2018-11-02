@@ -40,7 +40,7 @@ namespace HTMLReportingDEMO
 
                 if (pick == "id" || pick == "ID")
                 {
-                    Console.WriteLine("Give the new ID a name?");
+                    Console.WriteLine("Type the new ID a name..");
                     nameRaw = Console.ReadLine();
                     nameModified= "id='" + nameRaw + "'";
 
@@ -51,13 +51,25 @@ namespace HTMLReportingDEMO
                 }
                 else if (pick == "class" || pick == "Class")
                 {
-                    Console.WriteLine("Give the new Class a name?");
-                    nameRaw = Console.ReadLine();
-                    nameModified = "class='" + nameRaw + "'";
+                    Console.WriteLine("Create a new class or us an existing one? type 'New' for new.. anything else for existing.");
+                    string newpick = Console.ReadLine();
+                    if (newpick == "New" || newpick == "new")
+                    {
+                        Console.WriteLine("Give the new Class a name?");
+                        nameRaw = Console.ReadLine();
+                        nameModified = "class='" + nameRaw + "'";
+                        Console.WriteLine("Add Css to the New Class Now:");
+                        string css = Console.ReadLine();
+                        htmlReportor.CSS_Class_CreateNEW(nameRaw, css);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Which class would you like to use?");
+                        nameRaw = Console.ReadLine();
+                        nameModified = "class='" + nameRaw + "'";
+                    }
 
-                    Console.WriteLine("Add Css to the New Class Now:");
-                    string css = Console.ReadLine();
-                    htmlReportor.CSS_Class_Create(nameRaw, css);
+                    
                     Console.WriteLine("ID Saved.");
                 }
 
@@ -87,7 +99,7 @@ namespace HTMLReportingDEMO
                             string linkActual = Console.ReadLine();
                             Console.WriteLine("^ HyperLink: Give the HyperLink a description & hit enter");
                             string linkDescription = Console.ReadLine();
-                            htmlReportor.HyperLink(linkActual, linkDescription);
+                            htmlReportor.HyperLink(linkActual, linkDescription, nameModified);
                             Console.WriteLine("HyperLink Added..");
                             break;
                         }
