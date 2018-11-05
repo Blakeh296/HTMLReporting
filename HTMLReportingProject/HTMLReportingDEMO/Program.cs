@@ -35,6 +35,7 @@ namespace HTMLReportingDEMO
                 {
                     Console.WriteLine("Type 'id' or 'class' to style this element with CSS.. To skip leave blank & press enter.");
                     pick = Console.ReadLine();
+                    nameModified = "";
                 }
                 
 
@@ -68,9 +69,7 @@ namespace HTMLReportingDEMO
                         nameRaw = Console.ReadLine();
                         nameModified = "class='" + nameRaw + "'";
                     }
-
-                    
-                    Console.WriteLine("ID Saved.");
+                    Console.WriteLine("Class Saved.");
                 }
 
                 switch (input)
@@ -93,6 +92,12 @@ namespace HTMLReportingDEMO
                             Console.WriteLine("Paragraph Added to " + projectName);
                             break;
                         }
+                    case "<div>":
+                        {
+                            htmlReportor.DivOpen(nameModified);
+                            Console.WriteLine("Div "+nameModified+" OPENED..");
+                            break;
+                        }
                     case "<a href>":
                         {
                             Console.WriteLine("Add HyperLink: Paste the link now.. & hit Enter");
@@ -105,39 +110,27 @@ namespace HTMLReportingDEMO
                         }
                     case "<ul>":
                         {
-                            htmlReportor.UnorderedListOPEN();
+                            htmlReportor.UnorderedListOPEN(nameModified);
                             Console.WriteLine("Unordered List OPENDED..");
-                            break;
-                        }
-                    case "</ul>":
-                        {
-                            htmlReportor.UnorderedListCLOSE();
-                            Console.WriteLine("Unordered List CLOSED..");
                             break;
                         }
                     case "<ol>":
                         {
-                            htmlReportor.OrderedListOPEN();
+                            htmlReportor.OrderedListOPEN(nameModified);
                             Console.WriteLine("Ordered List OPENED..");
-                            break;
-                        }
-                    case "</ol>":
-                        {
-                            htmlReportor.OrderedListCLOSE();
-                            Console.WriteLine("Ordered List CLOSED..");
                             break;
                         }
                     case "<li>":
                         {
                             Console.WriteLine("Type for the <li> NOW.. & hit enter.");
                             input = Console.ReadLine();
-                            htmlReportor.ListItem(input);
+                            htmlReportor.ListItem(input, nameModified);
                             Console.WriteLine("List item ADDED..");
                             break;
                         }
                     case "<input type='text'>":
                         {
-                            htmlReportor.InputTextBox();
+                            htmlReportor.InputTextBox(nameModified);
                             Console.WriteLine("Textbox ADDED..");
                             break;
                         }
@@ -147,16 +140,58 @@ namespace HTMLReportingDEMO
                             Console.WriteLine("<Table> OPENED..");
                             break;
                         }
-                    case "</table>":
-                        {
-                            htmlReportor.TableCLOSE();
-                            Console.WriteLine("<Table> CLOSED..");
-                            break;
-                        }
                     case "<tr>":
                         {
                             htmlReportor.TableRowOPEN(nameModified);
                             Console.WriteLine("<tr> OPENED..");
+                            break;
+                        }
+                    case "<th>":
+                        {
+                            Console.WriteLine("Enter data for <table> -> <tr>'s -> <th> :");
+                            input = Console.ReadLine();
+                            htmlReportor.TableHead(input, nameModified);
+                            Console.WriteLine("<th> ADDED..");
+                            break;
+                        }
+                    case "<td>":
+                        {
+                            Console.WriteLine("Enter data for <tr> -> <td> :");
+                            input = Console.ReadLine();
+                            htmlReportor.TableData(input, nameModified);
+                            Console.WriteLine("<td> ADDED..");
+                            break;
+                        }
+                    case "<img>":
+                        {
+                            Console.WriteLine("Type <img> source now :");
+                            input = Console.ReadLine();
+                            htmlReportor.Image(input, nameModified);
+                            Console.WriteLine("<img src=" + input + "> ADDED..");
+                            break;
+                        }
+                    case "</br>":
+                        {
+                            htmlReportor.Break();
+                            Console.WriteLine("Line break ADDED..");
+                            break;
+                        }
+                    case "</ul>":
+                        {
+                            htmlReportor.UnorderedListCLOSE();
+                            Console.WriteLine("Unordered List CLOSED..");
+                            break;
+                        }
+                    case "</ol>":
+                        {
+                            htmlReportor.OrderedListCLOSE();
+                            Console.WriteLine("Ordered List CLOSED..");
+                            break;
+                        }
+                    case "</table>":
+                        {
+                            htmlReportor.TableCLOSE();
+                            Console.WriteLine("<Table> CLOSED..");
                             break;
                         }
                     case "</tr>":
@@ -165,20 +200,10 @@ namespace HTMLReportingDEMO
                             Console.WriteLine("<tr> CLOSED..");
                             break;
                         }
-                    case "<th>":
+                    case "</div>":
                         {
-                            Console.WriteLine("Enter data for <tr> :");
-                            input = Console.ReadLine();
-                            htmlReportor.TableHead(input, nameModified);
-                            Console.WriteLine("<th> ADDED..");
-                            break;
-                        }
-                    case "<td>":
-                        {
-                            Console.WriteLine("Enter data for <td> :");
-                            input = Console.ReadLine();
-                            htmlReportor.TableData(input);
-                            Console.WriteLine("<td> ADDED..");
+                            htmlReportor.DivClose();
+                            Console.WriteLine("<Div> CLOSED..");
                             break;
                         }
                     case "stop":

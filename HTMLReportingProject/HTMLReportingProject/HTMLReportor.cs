@@ -154,19 +154,19 @@ namespace HTMLReportingProject
         { try { _Header.Enqueue("." + ClassName + "{" + CSS_Style + "}"); } catch (Exception ex) { throw ex; } }
 
         public void TableOPEN(string css)
-        { try { _Body.Enqueue("<table"+css+">"); } catch (Exception ex) { throw ex; } }
+        { try { _Body.Enqueue("<table "+css+">"); } catch (Exception ex) { throw ex; } }
 
         public void TableCLOSE()
         { try { _Body.Enqueue("</table>"); } catch (Exception ex) { throw ex; } }
 
         public void TableRowOPEN(string css)
-        { try { _Body.Enqueue("<tr"+css+">"); } catch (Exception ex) { throw ex; } }
+        { try { _Body.Enqueue("<tr "+css+">"); } catch (Exception ex) { throw ex; } }
 
         public void TableRowCLOSE()
         { try { _Body.Enqueue("</tr>"); } catch (Exception ex) { throw ex; } }
 
         public void TableHead(string text, string css)
-        { try { _Body.Enqueue("<th"+css+">" + text + "</th>"); } catch (Exception ex) { throw ex; } }
+        { try { _Body.Enqueue("<th "+css+">" + text + "</th>"); } catch (Exception ex) { throw ex; } }
 
         public void TableData(string text, string css)
         { try { _Body.Enqueue("<td"+css+">" + text + "</td>"); } catch (Exception ex) { throw ex; } }
@@ -178,16 +178,38 @@ namespace HTMLReportingProject
         { try { _Body.Enqueue("</ol>"); } catch (Exception ex) { throw ex; } }
 
         public void UnorderedListOPEN(string css)
-        { try { _Body.Enqueue("<ul"+css+">"); } catch (Exception ex) { throw ex; } }
+        { try { _Body.Enqueue("<ul "+css+">"); } catch (Exception ex) { throw ex; } }
 
         public void UnorderedListCLOSE()
         { try { _Body.Enqueue("</ul>"); } catch (Exception ex) { throw ex; } }
 
-        public void ListItem (string listItem)
-        { try { _Body.Enqueue("<li>" + listItem + "</li>"); } catch (Exception ex) { throw ex; } }
+        public void ListItem (string listItem, string css)
+        { try { _Body.Enqueue("<li "+css+">" + listItem + "</li>"); } catch (Exception ex) { throw ex; } }
 
         public void Paragraph(string text, string css)
         { try { _Body.Enqueue("<p "+css+">" + text + "</p>"); } catch (Exception ex) { throw ex; } }
+
+        public void InputTextBox(string css)
+        { try{_Body.Enqueue("<input "+css+" type='text'>");} catch (Exception ex){ throw ex; } }
+
+        public void DivOpen(string css)
+        { try{ _Body.Enqueue("<div "+css+">"); } catch (Exception ex){throw ex;} }
+
+        public void DivClose()
+        { try{_Body.Enqueue("</div>");} catch (Exception ex){throw ex;} }
+
+        public void Break()
+        { try{_Body.Enqueue("</br>");} catch (Exception ex){throw ex;} }
+
+        public void HyperLink(string link, string desc, string css)
+        {
+            try { _Body.Enqueue("<a "+css+" href='" + link + "'>" + desc + "</a>"); }
+            catch (Exception ex)
+            { throw ex; }
+        }
+
+        public void Image(string src, string css)
+        { try { _Body.Enqueue("<img " + css + " src='" + src + "'>"); } catch (Exception ex) { throw ex; } }
 
         // NOT USED
         public void FigCaption(string description)
@@ -200,27 +222,5 @@ namespace HTMLReportingProject
         // NOT USED
         public void FigureClose()
         { try { _Body.Enqueue("</figure>"); } catch (Exception ex) { throw ex; } }
-
-        public void InputTextBox()
-        { try{_Body.Enqueue("<input type='text'>");} catch (Exception ex){ throw ex; } }
-
-        // NOT USED
-        public void DivOpen(string css)
-        { try{ _Body.Enqueue("<div "+css+">"); } catch (Exception ex){throw ex;} }
-
-        // NOT USED
-        public void DivClose()
-        { try{_Body.Enqueue("</div>");} catch (Exception ex){throw ex;} }
-
-        // NOT USED
-        public void Break()
-        { try{_Body.Enqueue("</br>");} catch (Exception ex){throw ex;} }
-
-        public void HyperLink(string link, string desc, string css)
-        {
-            try { _Body.Enqueue("<a "+css+" href='" + link + "'>" + desc + "</a>"); }
-            catch (Exception ex)
-            { throw ex; }
-        }
     }
 }
