@@ -211,6 +211,12 @@ namespace HTMLReportingProject
         public void Image(string src, string css)
         { try { _Body.Enqueue("<img " + css + " src='" + src + "'>"); } catch (Exception ex) { throw ex; } }
 
+        public void FooterOPEN(string css)
+        { try { _Body.Enqueue("<footer " + css + " >"); } catch (Exception ex) { throw ex; } }
+
+        public void FooterCLOSE()
+        { try { _Body.Enqueue("</footer>"); } catch (Exception ex) { throw ex; } }
+
         // NOT USED
         public void FigCaption(string description)
         { try { _Body.Enqueue("<figcaption>" + description + "</figcaption>"); } catch (Exception ex) { throw ex; } }
