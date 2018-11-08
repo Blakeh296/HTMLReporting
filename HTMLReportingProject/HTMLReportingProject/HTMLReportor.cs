@@ -154,25 +154,25 @@ namespace HTMLReportingProject
         { try { _Header.Enqueue("." + ClassName + "{" + CSS_Style + "}"); } catch (Exception ex) { throw ex; } }
 
         public void TableOPEN(string css)
-        { try { _Body.Enqueue("<table "+css+">"); } catch (Exception ex) { throw ex; } }
+        { try { _Body.Enqueue("<table " + css + ">"); } catch (Exception ex) { throw ex; } }
 
         public void TableCLOSE()
         { try { _Body.Enqueue("</table>"); } catch (Exception ex) { throw ex; } }
 
         public void TableRowOPEN(string css)
-        { try { _Body.Enqueue("<tr "+css+">"); } catch (Exception ex) { throw ex; } }
+        { try { _Body.Enqueue("<tr " + css + ">"); } catch (Exception ex) { throw ex; } }
 
         public void TableRowCLOSE()
         { try { _Body.Enqueue("</tr>"); } catch (Exception ex) { throw ex; } }
 
         public void TableHead(string text, string css)
-        { try { _Body.Enqueue("<th "+css+">" + text + "</th>"); } catch (Exception ex) { throw ex; } }
+        { try { _Body.Enqueue("<th " + css + ">" + text + "</th>"); } catch (Exception ex) { throw ex; } }
 
         public void TableData(string text, string css)
-        { try { _Body.Enqueue("<td"+css+">" + text + "</td>"); } catch (Exception ex) { throw ex; } }
+        { try { _Body.Enqueue("<td" + css + ">" + text + "</td>"); } catch (Exception ex) { throw ex; } }
 
         public void OrderedListOPEN(string css)
-        { try { _Body.Enqueue("<ol"+css+">"); } catch (Exception ex) { throw ex; } }
+        { try { _Body.Enqueue("<ol" + css + ">"); } catch (Exception ex) { throw ex; } }
 
         public void OrderedListCLOSE()
         { try { _Body.Enqueue("</ol>"); } catch (Exception ex) { throw ex; } }
@@ -184,13 +184,16 @@ namespace HTMLReportingProject
         { try { _Body.Enqueue("</ul>"); } catch (Exception ex) { throw ex; } }
 
         public void ListItem (string listItem, string css)
-        { try { _Body.Enqueue("<li "+css+">" + listItem + "</li>"); } catch (Exception ex) { throw ex; } }
+        { try { _Body.Enqueue("<li " + css + ">" + listItem + "</li>"); } catch (Exception ex) { throw ex; } }
 
         public void Paragraph(string text, string css)
-        { try { _Body.Enqueue("<p "+css+">" + text + "</p>"); } catch (Exception ex) { throw ex; } }
+        { try { _Body.Enqueue("<p " + css + ">" + text + "</p>"); } catch (Exception ex) { throw ex; } }
 
-        public void InputTextBox(string css)
-        { try{_Body.Enqueue("<input "+css+" type='text'>");} catch (Exception ex){ throw ex; } }
+        public void TextBox(string css)
+        { try{_Body.Enqueue("<input " + css + " type='text'>");} catch (Exception ex){ throw ex; } }
+
+        public void Button(string txtValue, string css)
+        { try { _Body.Enqueue("<button " + css + " type='button'>" + txtValue + "</button>"); } catch (Exception ex) { throw ex; } }
 
         public void DivOpen(string css)
         { try{ _Body.Enqueue("<div "+css+">"); } catch (Exception ex){throw ex;} }
@@ -201,9 +204,12 @@ namespace HTMLReportingProject
         public void Break()
         { try{_Body.Enqueue("</br>");} catch (Exception ex){throw ex;} }
 
+        public void Abbreviation(string abbreviation, string fullLength)
+        { try { _Body.Enqueue("<abbr title='" + fullLength + "'>" + abbreviation + "</abbr>"); } catch (Exception ex) {throw ex; } }
+
         public void HyperLink(string link, string desc, string css)
         {
-            try { _Body.Enqueue("<a "+css+" href='" + link + "'>" + desc + "</a>"); }
+            try { _Body.Enqueue("<a " + css + " href='" + link + "'>" + desc + "</a>"); }
             catch (Exception ex)
             { throw ex; }
         }
