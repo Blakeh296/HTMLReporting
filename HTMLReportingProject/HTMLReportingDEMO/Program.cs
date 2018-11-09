@@ -88,7 +88,7 @@ namespace HTMLReportingDEMO
                                 Console.WriteLine("'<td>' : Table Data. NO CLOSING TAG NECESSARY."); Console.WriteLine("'<ul>' & '</ul>' : Unordered List.");
                                 Console.WriteLine("'<ol>' & '</ol>' : Ordered List."); Console.WriteLine("'<li>' : List Item. NO CLOSING TAG NECESSARY.");
                                 Console.WriteLine("'<img>' : Image. NO CLOSING TAG NECESSARY."); Console.WriteLine("'<a href>' : HyperLink. NO CLOSING TAG NECESSARY.");
-                                Console.WriteLine("<abbr> : Abbreviation. NO CLOSING TAG NECESSARY.");
+                                Console.WriteLine("<abbr> : Abbreviation. NO CLOSING TAG NECESSARY."); Console.WriteLine("<hr> : Horizontal Row. SELF CLOSING TAG.");
                                 Console.WriteLine("'<footer>' & '</footer>' : Page Footer."); Console.WriteLine("'#id' & '#ID' : New CSS ID.");
                                 Console.WriteLine("'.class' & '.Class' : New CSS Class."); Console.WriteLine("'<div>' & '</div>' : New CSS Div."); Console.WriteLine(" "); break;
                             }
@@ -182,6 +182,8 @@ namespace HTMLReportingDEMO
                         case "<tr>": { htmlReportor.TableRowOPEN(nameModified); Console.WriteLine("<tr> OPENED.."); break; }
 
                         case "</br>": { htmlReportor.Break(); Console.WriteLine("Line break ADDED.."); break; }
+
+                        case "<hr>": { htmlReportor.HorizontalRow(); Console.WriteLine("Horizontal Row ADDED.."); break; }
 
                         case "</ul>": { htmlReportor.UnorderedListCLOSE(); Console.WriteLine("Unordered List CLOSED.."); break; }
 

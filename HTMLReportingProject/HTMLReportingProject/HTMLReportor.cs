@@ -199,10 +199,13 @@ namespace HTMLReportingProject
         { try{ _Body.Enqueue("<div "+css+">"); } catch (Exception ex){throw ex;} }
 
         public void DivClose()
-        { try{_Body.Enqueue("</div>");} catch (Exception ex){throw ex;} }
+        { try{_Body.Enqueue("</div>");} catch (Exception ex){ throw ex;} }
 
         public void Break()
-        { try{_Body.Enqueue("</br>");} catch (Exception ex){throw ex;} }
+        { try{_Body.Enqueue("</br>");} catch (Exception ex){ throw ex;} }
+
+        public void HorizontalRow()
+        { try { _Body.Enqueue("<hr>"); } catch (Exception ex) { throw ex; } }
 
         public void Abbreviation(string abbreviation, string fullLength)
         { try { _Body.Enqueue("<abbr title='" + fullLength + "'>" + abbreviation + "</abbr>"); } catch (Exception ex) {throw ex; } }
