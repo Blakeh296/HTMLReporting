@@ -1,0 +1,2 @@
+HTMLReporterRelease_Setup1 Is already set up for deployment
+SHIFT + RIGHTCLICK EXE File to install

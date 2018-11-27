@@ -1,0 +1,8 @@
+G:\C#\HTMLReporting\HTMLReportingProject\HTMLReportingProject\bin\Release\netstandard2.0\HTMLReportingDLL.deps.json
+G:\C#\HTMLReporting\HTMLReportingProject\HTMLReportingProject\bin\Release\netstandard2.0\HTMLReportingDLL.dll
+G:\C#\HTMLReporting\HTMLReportingProject\HTMLReportingProject\bin\Release\netstandard2.0\HTMLReportingDLL.pdb
+G:\C#\HTMLReporting\HTMLReportingProject\HTMLReportingProject\obj\Release\netstandard2.0\HTMLReportingDLL.csproj.CoreCompileInputs.cache
+G:\C#\HTMLReporting\HTMLReportingProject\HTMLReportingProject\obj\Release\netstandard2.0\HTMLReportingDLL.AssemblyInfoInputs.cache
+G:\C#\HTMLReporting\HTMLReportingProject\HTMLReportingProject\obj\Release\netstandard2.0\HTMLReportingDLL.AssemblyInfo.cs
+G:\C#\HTMLReporting\HTMLReportingProject\HTMLReportingProject\obj\Release\netstandard2.0\HTMLReportingDLL.dll
+G:\C#\HTMLReporting\HTMLReportingProject\HTMLReportingProject\obj\Release\netstandard2.0\HTMLReportingDLL.pdb
