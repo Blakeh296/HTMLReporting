@@ -105,3 +105,7 @@ G:\C#\HTMLReporting\HTMLReportingProject\HTMLReportingDEMO\obj\Release\HTMLRepor
 G:\C#\HTMLReporting\HTMLReportingProject\HTMLReportingDEMO\obj\Release\HTMLReportingDEMO.csproj.CopyComplete
 G:\C#\HTMLReporting\HTMLReportingProject\HTMLReportingDEMO\obj\Release\HTMLReportingDEMO.exe
 G:\C#\HTMLReporting\HTMLReportingProject\HTMLReportingDEMO\obj\Release\HTMLReportingDEMO.pdb
+G:\C#\HTMLReporting\HTMLReportingProject\HTMLReportingDEMO\bin\Release\HTMLReportingDEMO.exe.manifest
+G:\C#\HTMLReporting\HTMLReportingProject\HTMLReportingDEMO\bin\Release\HTMLReportingDEMO.application
+G:\C#\HTMLReporting\HTMLReportingProject\HTMLReportingDEMO\obj\Release\HTMLReportingDEMO.exe.manifest
+G:\C#\HTMLReporting\HTMLReportingProject\HTMLReportingDEMO\obj\Release\HTMLReportingDEMO.application
